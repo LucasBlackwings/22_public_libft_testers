@@ -39,7 +39,7 @@ int	main(void)
 		"Special chars !@#$%^&*()_+-=[]{};:'\",.<>?/\\|",
 	};
 
-	static int	test_values[ARRAY_SIZE] =
+	/*static int	test_values[ARRAY_SIZE] =
 	{
 		0,
 		1,
@@ -53,10 +53,26 @@ int	main(void)
 		1000000000,
 		32767,
 		-32768,
+	};*/
+
+	static int	test_values[ARRAY_SIZE] =
+	{
+		1,
+		100,
+		200,
+		300,
+		400,
+		500,
+		600,
+		700,
+		800,
+		900,
+		1000,
+		1100,
 	};
 
 	int			result1 = 0;
-	int			result2 = 0;
+	//int			result2 = 0;
 
 	for (int i = 0; i < ARRAY_SIZE - 1; i++)
 	{
@@ -64,11 +80,12 @@ int	main(void)
 		{
 			for (int k = 0; k < ARRAY_SIZE - 1; k++)
 			{
-				//printf("i : %d | j : %d | k : %d\t", i, j, k);
-				//printf("s1 : %s | s2 : %s | n : %d\t", test_strings1[i], test_strings2[j], test_values[k]);
-				result1 = strncmp(test_strings1[i], test_strings2[j], test_values[k]);
+				printf("i : %d | j : %d | k : %d => ", i, j, k);
+				printf("s1 : %s | s2 : %s | n : %d => ", test_strings1[i], test_strings2[j], test_values[k]);
+				result1 = memcmp(test_strings1[i], test_strings2[j], test_values[k]);
 				//result2 = ft_strncmp(test_strings1[i], test_strings2[j], test_values[k]);
-				if (result1 != result2) { printf("ERROR\n"); }
+				//if (result1 != result2) { printf("ERROR\n"); }
+				printf("result1 : %d\n", result1);
 			}
 		}
 	}
